@@ -22,6 +22,7 @@ const SearchBar = () => {
   const [manufacturer, setManufacturer] = useState("");
   const [model, setModel] = useState("");
   const router = useRouter();
+  
   const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -30,8 +31,8 @@ const SearchBar = () => {
     }
 
     updateSearchParams(
-      model.toLocaleLowerCase(),
-      manufacturer.toLocaleLowerCase()
+      model.toLowerCase(),
+      manufacturer.toLowerCase()
     );
   };
 
@@ -51,7 +52,7 @@ const SearchBar = () => {
 
     const newPathname = `${
       window.location.pathname
-    }?${searchParams.toString()}`;
+    } ? ${searchParams.toString()}`;
 
     router.push(newPathname);
   };
@@ -78,7 +79,7 @@ const SearchBar = () => {
           name="model"
           value={model}
           onChange={(e) => setModel(e.target.value)}
-          placeholder="Tiguan"
+          placeholder="Renault"
           className="searchbar__input"
         />
         <SearchButton otherClasses="sm:hidden" />
